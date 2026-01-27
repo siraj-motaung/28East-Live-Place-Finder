@@ -38,3 +38,15 @@ button { background-color: #3498db;
        border-radius: 8px;
        margin-bottom: 20px; 
 }
+#place-list { list-style: circle; padding: 0; margin-top: 1rem; margin: auto;}
+
+#error-message {
+   color: red;
+    margin: 10px 0;
+    display: none; /* Hidden until JS changes it to 'block' */
+    padding: 10px;
+    border: 1px solid red;
+    background-color: #fff0f0;
+    border-radius: 4px;
+    font-weight: bold;
+}
