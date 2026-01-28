@@ -3,7 +3,7 @@ body {  font-family: sans-serif;
         margin: 0; 
         padding: 20px;
     }
-.app-container { max-width: 1000px;
+.app-container { max-width: 1200px;
                  margin: auto;
                  background: white;
                  padding: 20px;
@@ -38,7 +38,15 @@ button { background-color: #3498db;
        border-radius: 8px;
        margin-bottom: 20px; 
 }
-#place-list { list-style: circle; padding: 0; margin-top: 1rem; margin: auto;}
+
+#place-list { 
+    display: grid;
+    gap: 20px;
+    padding: 0;
+    margin: 2rem auto;
+    list-style: none; 
+    max-width: 1200px; 
+}
 
 #error-message {
    color: red;
