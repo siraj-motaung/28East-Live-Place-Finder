@@ -64,7 +64,7 @@ http://127.0.0.1:5000
 └── requirements.txt    # Python dependencies
 ```
 ## ⚠️ Troubleshooting
-Port 5000/5001 is busy: The setup.sh script automatically attempts to kill processes occupying the necessary port but you can also do it manually:
+Port 5000 is busy: The setup.sh script automatically attempts to kill processes occupying the necessary port, but you can also do it manually:
 ```
 kill -9 $(lsof -t -i:5000)
 ```
