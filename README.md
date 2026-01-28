@@ -15,6 +15,14 @@ The project includes a unified script that handles environment creation, depende
 source scripts/setup.sh
 ```
 
+### 3. Accessing the Application
+Once the script successfully starts the server, you will see a message in your terminal like this:
+`* Running on http://127.0.0.1:5000`
+
+To view your app, copy and paste the following URL into your web browser:  
+```
+http://127.0.0.1:5000
+```
 
 ## Manual Installation (Alternative)
 If you prefer to run the steps manually or if the script fails, use these commands:
@@ -32,6 +40,15 @@ pip install -r requirements.txt
 ### 3. Start the Flask Server:
 ```
 python app.py
+```
+
+### 4. Accessing the Application
+Once the script successfully starts the server, you will see a message in your terminal like this:
+`* Running on http://127.0.0.1:5000`
+
+To view your app, copy and paste the following URL into your web browser:  
+```
+http://127.0.0.1:5000
 ```
 
 # 📂 Project Structure
