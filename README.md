@@ -27,16 +27,45 @@ http://127.0.0.1:5000
 ## Manual Installation (Alternative)
 If you prefer to run the steps manually or if the script fails, use these commands:
 
+### 🪟 Windows Users (Manual Setup)
+
+  - Create Virtual Environment:
+     ```
+      python -m venv venv
+     ```
+  - Activate Environment:
+     ```
+      .\venv\Scripts\activate
+     ```
+  - Install Requirements:
+    ```
+    pip install -r requirements.txt
+    ```
+  - Set Environment Variable:
+    ```
+    $env:GOOGLE_API_KEY="your_api_key_here" (PowerShell) 
+    ```
+    or 
+    ```
+    set GOOGLE_API_KEY=your_api_key_here (CMD)
+    ``` 
+  - Run App:
+  ```
+  python app.py
+  ```
+
 ### 1. Create and Activate Virtual Environment:
 
 ```
 python3 -m venv venv
 source venv/bin/activate
 ```
+
 ### 2. Install Dependencies:
 ```
 pip install -r requirements.txt
 ```
+
 ### 3. Start the Flask Server:
 ```
 python app.py
