@@ -1,11 +1,20 @@
+import os
 import requests
-from flask import Flask, request, jsonify
+from flask import Flask, request, render_template, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
 
-GOOGLE_API_KEY = "<GOOGLE_API_KEY>"
+GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
+
+@app.route('/')
+def index():
+    if not GOOGLE_API_KEY:
+        # Help for the developer if they forgot the key
+        return "Error: GOOGLE_API_KEY not set in environment variables.", 500
+    return render_template('index.html', google_api_key=GOOGLE_API_KEY)
+
 
 @app.route('/api/nearby', methods=['GET'])
 def nearby_search():
@@ -14,6 +23,14 @@ def nearby_search():
    
     geocode_url = f"https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={GOOGLE_API_KEY}"
     geocode_results = requests.get(geocode_url).json()
+    print("SIRAJ GOOGLE", GOOGLE_API_KEY)
+
+    if geocode_results.get('status') == 'REQUEST_DENIED':
+            return jsonify({
+                "status": "error",
+                "message": "The Google API key is incorrect or invalid. Please check Google API key."
+            }), 401
+
    
     # Check if Google actually found the address
     if geocode_results.get('status') == 'ZERO_RESULTS' or not geocode_results.get('results'):
@@ -40,8 +57,7 @@ def nearby_search():
     })
   
 
-   
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
-
+   app.run(debug=True, port=5000)
+  

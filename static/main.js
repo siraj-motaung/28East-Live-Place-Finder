@@ -32,7 +32,7 @@ document.getElementById('search-btn').addEventListener('click', async () => {
     if (!address) return alert("Please enter an address!");
 
     try {
-        const response = await fetch(`http://127.0.0.1:5000/api/nearby?address=${encodeURIComponent(address)}&type=${type}`);
+        const response = await fetch(`/api/nearby?address=${encodeURIComponent(address)}&type=${type}`);
         const data = await response.json();
 
         if (!response.ok) {
@@ -87,5 +87,4 @@ function updateUI(places, location) {
 }
 
 window.onload = DefaultMap;
-
 

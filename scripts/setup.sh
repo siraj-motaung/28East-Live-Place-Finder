@@ -19,12 +19,12 @@ echo "Upgrading pip..."
 pip install --upgrade pip
 
 # 4. Install the requirements
-echo "Installing requirements from live_place_finder_api/requirements.txt..."
-if [ -f "live_place_finder_api/requirements.txt" ]; then
-    pip install -r live_place_finder_api/requirements.txt
+echo "Installing requirements from requirements.txt..."
+if [ -f "requirements.txt" ]; then
+    pip install -r requirements.txt
     echo "Requirements installed successfully!"
 else
-    echo "Error: live_place_finder_api/requirements.txt not found."
+    echo "Error: requirements.txt not found."
     exit 1
 fi
 
@@ -33,5 +33,12 @@ echo "✅ Setup complete!"
 echo "To start working, you MUST run this command in your terminal:"
 echo "source venv/bin/activate"
 
+# Check if port 5000 is busy and kill it (Mac/Linux)
+PORT_BUSY=$(lsof -t -i:5000)
+if [ ! -z "$PORT_BUSY" ]; then
+    echo "Cleaning up port 5000..."
+    kill -9 $PORT_BUSY
+fi
+
 echo "🚀 Starting Flask Server..."
-python live_place_finder_api/app.py
+python app.py
