@@ -75,3 +75,29 @@ chmod +x scripts/setup.sh
 ```
 
 Map Not Loading: Ensure the API key exported in Step 1 has the "Maps JavaScript API" and "Places API" enabled in your Google Cloud Console.
+
+# 🛠 AI-Assistance & Research Disclosure
+In accordance with the assessment guidelines, I am simply disclosing the use of AI (Gemini) as a research and boilerplate aid for this project.
+
+## 1. Conceptual Understanding & Research
+I used AI as a supplemental learning tool alongside official documentation to quickly grasp the following Google Maps Platform concepts:
+- Geocoding API: Understanding how to parse JSON responses to extract specific lat and lng coordinates from a user's address.
+- Places API (Nearby Search): Learning the required parameters (location, radius, and type) to center a search on specific coordinates.
+- Maps JavaScript API: Understanding how to initialize a map, manage markers, and link the frontend display to backend data.
+  
+  - Why: I used these tools to quickly bridge the gap between my existing knowledge and the specific requirements of the Google Maps Platform. Using AI as a "technical tutor" allowed me to understand the data structures (JSON) and parameters (radius, location types) required to ensure the backend and frontend were perfectly synced. 
+
+## 2. Core Logic (Authored by Me)
+- API Orchestration (app.py): I designed the logic flow to handle the two-step dependency between Google’s services:
+   - Step 1 (Geocoding): I implemented the request to the Geocoding API to transform a user's plain-text address into a coordinate object. I manually extracted the specific latitude and longitude from the nested JSON response: results[0]['geometry']['location'].
+   - Step 2 (Nearby Search): I used the coordinates retrieved from Step 1 to dynamically populate the location parameter of the Places API. This ensures the search is mathematically centered on the user's input before returning the results to the frontend.
+
+- Asynchronous Frontend (main.js): I developed the fetch logic and the marker management system. I wrote the logic to clear previous markers from the markers array using m.setMap(null) before rendering new results, ensuring the map remains clean and accurate during multiple searches.
+
+## 3. AI-Assisted Components & Iterative Design
+I utilized AI for non-core boilerplate and environment-specific tasks:
+
+- **Iterative CSS Design (style.css)**: I used AI to research modern CSS styles and layouts. Through a trial-and-error approach, I experimented with different configurations suggested by the AI to achieve a responsive card-based layout that looked professional. 
+- **Setup (setup.sh)**: I used AI to write the logic that identifies and terminates processes on Port 5000. This ensures the app runs reliably on different machines.
+  
+  - During development, I encountered a common macOS issue where Port 5000 is occupied by system services. I chose to use AI to find a reliable script-based solution for this, ensuring that the application remains robust and portable. This allows any reviewer to run the setup script on their own machine without having to manually troubleshoot port conflicts.
