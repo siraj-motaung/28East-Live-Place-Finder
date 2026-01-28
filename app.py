@@ -11,7 +11,7 @@ GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
 @app.route('/')
 def index():
     if not GOOGLE_API_KEY:
-        # Help for the developer if they forgot the key
+        # Return an error when no api key is provided.
         return "Error: GOOGLE_API_KEY not set in environment variables.", 500
     return render_template('index.html', google_api_key=GOOGLE_API_KEY)
 
