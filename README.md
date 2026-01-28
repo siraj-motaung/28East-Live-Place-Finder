@@ -84,7 +84,7 @@ http://127.0.0.1:5000
 ```
 ├── app.py              # Flask server & API integration logic
 ├── scripts/
-│   └── setup.sh        # Automated venv creation and port cleanup
+│   └── setup.sh        # Automated environment creation, dependency installation, and server startup.
 ├── static/
 │   ├── main.js         # Frontend logic, Map handling, and UI updates
 │   └── style.css       # Custom CSS and styling
