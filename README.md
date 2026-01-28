@@ -53,7 +53,7 @@ If you prefer to run the steps manually or if the script fails, use these comman
   ```
   python app.py
   ```
-
+## MAC/LINUX USERS.
 ### 1. Create and Activate Virtual Environment:
 
 ```
