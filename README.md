@@ -88,11 +88,11 @@ I used AI as a supplemental learning tool alongside official documentation to qu
   - Why: I used these tools to quickly bridge the gap between my existing knowledge and the specific requirements of the Google Maps Platform. Using AI as a "technical tutor" allowed me to understand the data structures (JSON) and parameters (radius, location types) required to ensure the backend and frontend were perfectly synced. 
 
 ## 2. Core Logic (Authored by Me)
-- API Orchestration (app.py): I designed the logic flow to handle the two-step dependency between Google’s services:
-   - Step 1 (Geocoding): I implemented the request to the Geocoding API to transform a user's plain-text address into a coordinate object. I manually extracted the specific latitude and longitude from the nested JSON response: results[0]['geometry']['location'].
+- API Orchestration (`app.py`): I designed the logic flow to handle the two-step dependency between Google’s services:
+   - Step 1 (`Geocoding`): I implemented the request to the Geocoding API to transform a user's plain-text address into a coordinate object. I manually extracted the specific latitude and longitude from the nested JSON response: `results[0]['geometry']['location']`.
    - Step 2 (Nearby Search): I used the coordinates retrieved from Step 1 to dynamically populate the location parameter of the Places API. This ensures the search is mathematically centered on the user's input before returning the results to the frontend.
 
-- Asynchronous Frontend (main.js): I developed the fetch logic and the marker management system. I wrote the logic to clear previous markers from the markers array using m.setMap(null) before rendering new results, ensuring the map remains clean and accurate during multiple searches.
+- Asynchronous Frontend `(main.js)`: I developed the fetch logic and the marker management system. I wrote the logic to clear previous markers from the markers array using `m.setMap(null)` before rendering new results, ensuring the map remains clean and accurate during multiple searches.
 
 ## 3. AI-Assisted Components & Iterative Design
 I utilized AI for non-core boilerplate and environment-specific tasks:
