@@ -3,6 +3,8 @@ let markers = [];
 
 
 function DefaultMap(){
+    // new google.maps.Map() is the fundamental constructor used in the Google Maps JavaScript API to initialize
+    //  and display an interactive map on a webpage.
     map = new google.maps.Map(document.getElementById("map"), {
         zoom: 13,
         center: { 
@@ -64,7 +66,7 @@ function updateUI(places, location) {
     const list = document.getElementById('place-list');
     list.innerHTML = "";
 
-    // Set map center
+    // Set map center, fly the camera to the new address the user searched for.
     map.setCenter(location);
     map.setZoom(14);
 
@@ -87,4 +89,3 @@ function updateUI(places, location) {
 }
 
 window.onload = DefaultMap;
-

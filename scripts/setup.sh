@@ -41,4 +41,4 @@ if [ ! -z "$PORT_BUSY" ]; then
 fi
 
 echo "🚀 Starting Flask Server..."
-python app.py
+python3 app.py
