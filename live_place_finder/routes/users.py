@@ -30,13 +30,13 @@ def get_user(id: int):
                 "error": "user not found",
                 "message": f"No user exists with id {id}"
             }), 404,)
-
+        LOGGER.info(f"The data: {user_data}")
         return jsonify(user_data), 200
 
     
     except Exception:
         LOGGER.exception("Failed to retrieve user with id=%s", id)
-
+       
         return (
             jsonify(
                 {
